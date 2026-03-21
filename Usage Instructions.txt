@@ -4,12 +4,12 @@ Link to download: https://www.anaconda.com/download/success?reg=skipped
 
 Voice Cloning (GPT-SoVITS is only needed for better voice cloning, you can skip if you just want to use Qwen3-TTS Custom voices or Voice Designer)
 
-GPT-SoVITS V4/V2Pro/V2ProPlus
+Information on GPT-SoVITS V4/V2Pro/V2ProPlus (Used to make using Qwen3-TTS easier)
 
 V2ProPlus is the best model to use.  I know it's confusing because there are higher versions but this version is best.
 In order to clone a voice with Qwen3-TTS, it's easiest to use several features from the GPT-SoVITS package to automate training
 and data extraction.  Using the slicer seems to improve the quality of the data so start with slicing whatever audio
-you have created.  I recommend changing a couple settings: 
+you have created for training.  I recommend changing a couple settings: 
 
 Min_length - Change from 4000 to 10000
 Minimum interval for audio cutting - Change from 300 to 500
