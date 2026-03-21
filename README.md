@@ -14,7 +14,7 @@ Qwen3-TTS covers 10 major languages (Chinese, English, Japanese, Korean, German,
 
 ## Install<br>
 
-Qwen3-TTS can now run under GPT-SoVITS environment. Made changes to fix them working together.<br>
+GPT-SoVITS can now run under Qwen3-TTS environment. Made changes to fix them working together.<br>
 Link to compatible GPT-SoVITS package: https://github.com/jdc4429/GPT-SoVITS-V2ProPlus-Windows
 
 The easiest way to quickly use Qwen3-TTS is to install the `qwen-tts` Python package from PyPI. This will pull in the required runtime dependencies and allow you to load any released Qwen3-TTS model. We recommend using a **fresh, isolated environment** to avoid dependency conflicts with existing packages. You can create a clean Python 3.12 environment like this:
