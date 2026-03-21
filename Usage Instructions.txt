@@ -56,9 +56,9 @@ combined_reference.txt
 combined_reference.wav
 generated_tts.py
 
-Now to generate the cloned audio, just run the generated_tts.py python file: generated_tts.py
+Now to generate the cloned audio, just run the generated_tts.py python file: python generated_tts.py
 
-That's it, you should now see a file called output_voice_clone.wav with the generated clone output.
+That's it, in a bit, you should now see a file called output_voice_clone.wav with the generated clone output.
 
 
 
