@@ -41,14 +41,14 @@ def train():
     parser.add_argument("--speaker_name", type=str, default="speaker_test")
     args = parser.parse_args()
 
-    accelerator = Accelerator(gradient_accumulation_steps=4, mixed_precision="bf16", log_with="tensorboard")
+    accelerator = Accelerator(gradient_accumulation_steps=4, mixed_precision="bf16", log_with=None)
 
     MODEL_PATH = args.init_model_path
 
     qwen3tts = Qwen3TTSModel.from_pretrained(
         MODEL_PATH,
         torch_dtype=torch.bfloat16,
-        attn_implementation="flash_attention_2",
+        attn_implementation="sdpa",
     )
     config = AutoConfig.from_pretrained(MODEL_PATH)
 

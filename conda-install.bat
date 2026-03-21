@@ -1,0 +1,13 @@
+@echo off
+REM Create environment
+conda create -n qwen3-tts python=3.10 -y
+
+REM Run all installation commands in the environment
+conda run -n qwen3-tts pip install -U qwen-tts
+conda run -n qwen3-tts pip install torch==2.10.0 torchvision==0.25.0 torchaudio==2.10.0 --index-url https://download.pytorch.org/whl/cu130
+conda run -n qwen3-tts pip install https://github.com/mjun0812/flash-attention-prebuild-wheels/releases/download/v0.7.13/flash_attn-2.8.3+cu130torch2.10-cp310-cp310-win_amd64.whl
+conda run -n qwen3-tts pip install transformers==4.57.3
+
+#conda run -n qwen3-tts git clone https://github.com/QwenLM/Qwen3-TTS.git (Not needed with .rar download)
+#cd Qwen3-TTS
+conda run -n qwen3-tts pip install -e .

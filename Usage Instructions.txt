@@ -1,0 +1,158 @@
+Note: You must have Anaconda installed in order to use the conda commands.
+Link to download: https://www.anaconda.com/download/success?reg=skipped 
+
+
+Voice Cloning (GPT-SoVITS is only needed for voice cloning, you can skip if you just want to use Qwen3-TTS Custom voices or Voice Designer)
+
+GPT-SoVITS V4/V2Pro/V2ProPlus
+
+V2ProPlus is the best model to use.  I know it's confusing because there are higher versions but this version is best.
+In order to clone a voice with Qwen3-TTS, it's easiest to use several features from the GPT-SoVITS package to automate training
+and data extraction.  Using the slicer seems to improve the quality of the data so start with slicing whatever audio
+you have created.  I recommend changing a couple settings: 
+
+Min_length - Change from 4000 to 10000
+Minimum interval for audio cutting - Change from 300 to 500
+
+Fill in the 'Audio slicer input (file or folder)' with the path to the folder or file you wish to use for audio data training.
+Click 'Open Speech Slicing.'  When complete, a message will be displayed under: Speech Slicing Process Output Information
+
+After slicing, use the Faster Whisper speech recognition to create the text matching the audio.
+The paths have already been hard coded in the script so no need to modify those.
+
+Select the ASR model: Faster Whisper
+Select the ASR language: EN  (If your cloning in English)
+Click 'Open Speech Recognition'
+
+When complete, you will see a message under: Speech Recognition Process Output Information
+
+You will now have the following files:
+Under C:\GPT-SoVITS\output\slicer_opt you will have the generated slices of training audio.
+Under C:\GPT-SoVITS\output\asr_opt you will have the Train.list file which is the file listing the paths and text of 
+each audio file.
+
+If the training data is too large for your amount of VRAM you will get a CUDA OOM error and generation will fail.
+You may need to edit the training data to remove some of the audio files from Train.list and delete the excess audio files.
+
+Training data (For 8GB VRAM) cannot be too large or you will get a CUDA OOM error. The largest set I have been successful 
+in generating is 1 minute and 30 seconds long. Audio data size is 8.24MB or 8852KB - Also you can't have any audio clips 
+over 20 seconds long or it will crash. Higher VRAM means you can do bigger data sets and use longer audio clips.
+
+Copy the Train.list to the C:\Qwen3-TTS root folder.  That is all we need GPT-SoVITS for.
+
+
+Qwen3-TTS Instructions
+
+I made a script that automatically converts the Train.list to something we can use in Qwen3-TTS.
+Qwen3-TTS for voice cloning only supports a single reference audio file so the script will combine multiple audio files.
+
+Open the create_voice_clone_slicer.py file for editing and change the 'text_content =' text to whatever you want your
+cloned voice to say.  Save the edited file.
+
+Now run the file with: python create_voice_clone_slicer.py
+
+This will create the following 3 files:
+combined_reference.txt
+combined_reference.wav
+generated_tts.py
+
+Now to generate the cloned audio, just run the generated_tts.py python file: generated_tts.py
+
+That's it, you should now see a file called output_voice_clone.wav with the generated clone output.
+
+
+
+Qwen3-TTS Custom Voice
+
+For Qwen3-TTS-12Hz-1.7B/0.6B-CustomVoice models, the supported speaker list and speaker descriptions are provided below. 
+We recommend using each speaker’s native language for the best quality. Of course, each speaker can speak any language 
+supported by the model.
+
+Qwen3-TTS has 9 built in voices in sevreal languages that you can use with custom_voice.py
+
+Speaker		Voice Description							Native language
+
+Vivian		Bright, slightly edgy young female voice.				Chinese
+Serena		Warm, gentle young female voice.					Chinese
+Uncle_Fu	Seasoned male voice with a low, mellow timbre.				Chinese
+Dylan		Youthful Beijing male voice with a clear, natural timbre.		Chinese (Beijing Dialect)
+Eric		Lively Chengdu male voice with a slightly husky brightness.		Chinese (Sichuan Dialect)
+Ryan		Dynamic male voice with strong rhythmic drive.				English
+Aiden		Sunny American male voice with a clear midrange.			English
+Ono_Anna	Playful Japanese female voice with a light, nimble timbre.		Japanese
+Sohee		Warm Korean female voice with rich emotion.				Korean
+
+Edit the following variables in custom_voice.py:
+
+text="Welcome to the future of text-to-speech technology!",
+language="English",
+speaker="Ryan",  
+instruct="Very happy and energetic, with enthusiasm",  # Optional style instruction
+
+Run with: python custom_voice.py
+
+
+Qwen3-TTS Voice Designer
+
+For the voice design model (Qwen3-TTS-12Hz-1.7B-VoiceDesign), you can use generate_voice_design to provide the target 
+text and the natural-language instruct description to design the voice how you would like it to sound.
+
+Edit the following variables in voice_design.py:
+
+text="Hey, this is Garett and welcome to my YouTube channel.",
+
+instruct="A composed middle-aged male announcer with a deep, rich and magnetic voice, a steady speaking speed and clear 
+articulation, suitable for news broadcasting or documentary commentary.  Speak in a friendly, enthusiastic YouTube host 
+style. Sound natural and conversational, like you're talking directly to a friend. Use a warm, engaging tone with slight 
+excitement when asking questions and talk at a good speed for listeners.",
+
+Run with: python voice_design.py
+
+
+Qwen 3-TTS Punctuation
+
+Use Punctuation Strategically: This is your most basic and powerful tool. Different punctuation marks instruct the model 
+to create pauses of varying lengths .
+
+Comma , : Creates a short pause (around 300ms), perfect for lists or separating clauses.
+
+Semicolon ; : Creates a medium-length pause (around 500ms), ideal for related independent clauses.
+
+Period . : Creates a full-stop pause (around 600-700ms), signaling the end of a thought.
+
+Ellipsis … : Indicates a trailing-off thought, often resulting in a longer, more dramatic pause with a slight slowing of pace.
+
+Colon : : Signals that an explanation or list is coming, creating a noticeable pause with a slight rise in intonation.
+
+—   = emphasis shift (Builds tension, Feels more intentional / confident / dramatic on words after dash)
+\n\n = full reset (Docs say huge impact but it does not appear to do anything - maybe training data issue?) 
+
+
+Qwen3-TTS Recommended Settings
+
+Try these different settings for Qwen3-TTS:
+temperature: 0.5 – 0.65   ← LOWER than usual
+top_p: 0.7 – 0.85
+top_k: 20 – 40
+repetition_penalty: 1.05
+
+Defaults from official API:
+temperature: 0.9
+top_p: 1.0
+top_k: 50
+repetition_penalty: 1.05
+
+For stable timing (Voice speed not changing so bad):
+temperature=0.45,
+top_p=0.8,
+top_k=30,
+repetition_penalty=1.1
+
+Lower temperature = more consistent speed
+
+Better to do one/two/three sentences at a time instead of pages, then concatenate audio as the model tends to speed up the voice 
+the longer the amount of text to generate gets.
+
+
+
+
