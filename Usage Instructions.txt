@@ -2,7 +2,7 @@ Note: You must have Anaconda installed in order to use the conda commands.
 Link to download: https://www.anaconda.com/download/success?reg=skipped 
 
 
-Voice Cloning (GPT-SoVITS is only needed for voice cloning, you can skip if you just want to use Qwen3-TTS Custom voices or Voice Designer)
+Voice Cloning (GPT-SoVITS is only needed for better voice cloning, you can skip if you just want to use Qwen3-TTS Custom voices or Voice Designer)
 
 GPT-SoVITS V4/V2Pro/V2ProPlus
 
