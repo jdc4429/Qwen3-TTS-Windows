@@ -70,18 +70,19 @@ supported by the model.
 
 Qwen3-TTS has 9 built in voices in sevreal languages that you can use with custom_voice.py
 
-Speaker		Voice Description							Native language
-
-Vivian		Bright, slightly edgy young female voice.				              Chinese
-Serena		Warm, gentle young female voice.					                    Chinese
-Uncle_Fu	Seasoned male voice with a low, mellow timbre.				        Chinese
-Dylan		  Youthful Beijing male voice with a clear, natural timbre.		  Chinese (Beijing Dialect)
-Eric		  Lively Chengdu male voice with a slightly husky brightness.	  Chinese (Sichuan Dialect)
-Ryan		  Dynamic male voice with strong rhythmic drive.				        English
-Aiden		  Sunny American male voice with a clear midrange.			        English
-Ono_Anna	Playful Japanese female voice with a light, nimble timbre.	  Japanese
-Sohee		  Warm Korean female voice with rich emotion.				            Korean
-
+----------------------------------------------------------------------------------------------------------------
+| Speaker   | Voice Description                                                    | Native Language           |
+|-----------|----------------------------------------------------------------------|---------------------------|
+| Vivian    | Bright, slightly edgy young female voice.                            | Chinese                   |
+| Serena    | Warm, gentle young female voice.                                     | Chinese                   |
+| Uncle_Fu  | Seasoned male voice with a low, mellow timbre.                       | Chinese                   |
+| Dylan     | Youthful Beijing male voice with a clear, natural timbre.            | Chinese (Beijing Dialect) |
+| Eric      | Lively Chengdu male voice with a slightly husky brightness.          | Chinese (Sichuan Dialect) |
+| Ryan      | Dynamic male voice with strong rhythmic drive.                       | English                   |
+| Aiden     | Sunny American male voice with a clear midrange.                     | English                   |
+| Ono_Anna  | Playful Japanese female voice with a light, nimble timbre.           | Japanese                  |
+| Sohee     | Warm Korean female voice with rich emotion.                          | Korean                    |
+----------------------------------------------------------------------------------------------------------------
 Edit the following variables in custom_voice.py:
 
 text="Welcome to the future of text-to-speech technology!",
