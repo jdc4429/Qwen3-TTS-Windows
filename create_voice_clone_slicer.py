@@ -1,11 +1,17 @@
 # This python script will copy the training data from GPT-SoVITS's slicer_opt.list file and create a python file that 
 # you can run in Qwen3-TTS to create the voice clone, combining all audio files and descriptions into one reference.
+# Run this script after editing the text_content = '<Whatever you want to say>'
+# Then run the generated generated_tts.py: python generated_tts.py
+# When it's done running, you will see the file named output_voice_clone.wav
+# If you have multiple files, use _1, _2, etc after each file to be included.  ie. Train_1.wav, Train_2.wav
+# You can edit the variable below; training_audio = ' ' to whatever you want the base filename of your audio files to be.
+
 import re
 import os
 import numpy as np
 import soundfile as sf
 from scipy import signal
-training_audio = 'Dell_r730'
+training_audio = 'Train'
 pause_duration = 0.5
 output_audio = "combined_reference.wav"
 output_text = "combined_reference.txt"
@@ -142,9 +148,9 @@ subprocess.run([
 subprocess.run([
     "ffmpeg",
     "-i", "output_voice_clone.wav",
-    "-filter:a", f"atempo=.90",
+    "-filter:a", f"atempo=1.05",
     "-vn",
-    "output_voice_clone-.90.wav"
+    "output_voice_clone-1.05.wav"
 ])
 '''
 # Instead of ffmpeg can use sox which it says is studio quality - command 'sox input.wav output.wav tempo 0.95'
