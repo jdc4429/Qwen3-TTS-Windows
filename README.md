@@ -22,7 +22,15 @@ See the Usage Instructions.txt file for more information on how to use these too
 GPT-SoVITS can now run under the Qwen3-TTS environment. Made changes to fix them working together.<br>
 Link to compatible GPT-SoVITS package: https://github.com/jdc4429/GPT-SoVITS-V2ProPlus-Windows
 
-Run the following commands to create an environment and install the neccessary files:
+The easiest way to install is:
+
+```bash
+git clone https://github.com/jdc4429/Qwen3-TTS-Windows.git
+cd Qwen3-TTS-Windows
+conda-install.bat
+```
+
+Or run the following commands to create an environment and install the neccessary files:
 
 ```bash
 conda create -n TTS python=3.10.20 -y
