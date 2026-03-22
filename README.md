@@ -32,6 +32,7 @@ conda activate TTS
 then run:
 
 ```bash
+pip install torch==2.10.0 torchvision==0.25.0 torchaudio==2.10.0 --index-url https://download.pytorch.org/whl/cu130
 pip install -U qwen-tts
 git clone https://github.com/jdc4429/Qwen3-TTS-Windows.git
 cd Qwen3-TTS-Windows
