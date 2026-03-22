@@ -27,9 +27,9 @@ Click 'Open Speech Recognition'
 When complete, you will see a message under: Speech Recognition Process Output Information
 
 You will now have the following files:
-Under C:\GPT-SoVITS\output\slicer_opt you will have the generated slices of training audio.
-Under C:\GPT-SoVITS\output\asr_opt you will have the Train.list file which is the file listing the paths and text of 
-each audio file.
+Under C:\GPT-SoVITS-V2ProPlus-Windows\output\slicer_opt you will have the generated slices of training audio.
+Under C:\GPT-SoVITS-V2ProPlus-Windows\output\asr_opt you will have the slicer_opt.list file which is the file listing the
+paths and text of each audio file.
 
 If the training data is too large for your amount of VRAM you will get a CUDA OOM error and generation will fail.
 You may need to edit the training data to remove some of the audio files from Train.list and delete the excess audio files.
@@ -38,7 +38,8 @@ Training data (For 8GB VRAM) cannot be too large or you will get a CUDA OOM erro
 in generating is 1 minute and 30 seconds long. Audio data size is 8.24MB or 8852KB - Also you can't have any audio clips 
 over 20 seconds long or it will crash. Higher VRAM means you can do bigger data sets and use longer audio clips.
 
-Copy the Train.list to the C:\Qwen3-TTS root folder.  That is all we need GPT-SoVITS for.
+Copy the slicer_opt.list file to the C:\Qwen3-TTS-Windows root folder.  That is all we need GPT-SoVITS for.  You can do
+voice cloning in GPT-SoVITS also, I just don't find it as good.
 
 
 Qwen3-TTS Instructions
