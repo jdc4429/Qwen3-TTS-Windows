@@ -28,9 +28,6 @@ then run:
 
 ```bash
 pip install -U qwen-tts
-```
-
-```bash
 git clone https://github.com/QwenLM/Qwen3-TTS.git
 cd Qwen3-TTS
 pip install -e .
