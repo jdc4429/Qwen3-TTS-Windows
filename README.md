@@ -11,6 +11,11 @@ Qwen3-TTS covers 10 major languages (Chinese, English, Japanese, Korean, German,
 * **Extreme Low-Latency Streaming Generation**: Based on the innovative Dual-Track hybrid streaming generation architecture, a single model supports both streaming and non-streaming generation. It can output the first audio packet immediately after a single character is input, with end-to-end synthesis latency as low as 97ms, meeting the rigorous demands of real-time interactive scenarios.
 * **Intelligent Text Understanding and Voice Control**: Supports speech generation driven by natural language instructions, allowing for flexible control over multi-dimensional acoustic attributes such as timbre, emotion, and prosody. By deeply integrating text semantic understanding, the model adaptively adjusts tone, rhythm, and emotional expression, achieving lifelike “what you imagine is what you hear” output.
 
+## Helpful Additions
+
+Qwen3-TST is amazing at voice cloning, voice design, and custom voices but for cloning it lacks a good interface to help automate the cloning process.
+GPT-SoVITS is not quite as good at cloning, but it has great tools to automatically prepare your dataset for voice cloning.
+See the Usage Instructions.txt file for more information on how to use these tools along with my custom script.
 
 ## Install<br>
 
