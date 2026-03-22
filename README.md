@@ -33,8 +33,8 @@ then run:
 
 ```bash
 pip install -U qwen-tts
-git clone https://github.com/QwenLM/Qwen3-TTS.git
-cd Qwen3-TTS
+git clone https://github.com/jdc4429/Qwen3-TTS-Windows.git
+cd Qwen3-TTS-Windows
 pip install -e .
 ```
 
