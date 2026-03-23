@@ -35,7 +35,7 @@ cd Qwen3-TTS-Windows
 powershell -File install-FINAL-FIXES.ps1 -Device CU126 -Source HF
 pip install -e .
 ```
-Options for Powershell script: (Select from CU124, CU126, or CU128) (Select from HF, HF-Mirror, ModelScope)<br>
+Powershell script: (Select from CU124, CU126, CU128, CU130) (Select from HF, HF-Mirror, ModelScope)<br>
 
 Additionally, we recommend using FlashAttention 2 to reduce GPU memory usage. (Not supported on Turing or older architectures)
 
