@@ -21,4 +21,4 @@ wheels/
 .idea/
 .vscode/
 venv/
-env/
+env/"src/" 
