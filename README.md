@@ -19,23 +19,21 @@ See the Usage Instructions.txt file for more information on how to use these too
 
 ## Install<br>
 
-GPT-SoVITS can now run under the Qwen3-TTS environment. Made changes to fix them working together.<br>
-Link to compatible GPT-SoVITS package: https://github.com/jdc4429/GPT-SoVITS-V2ProPlus-Windows
+Link to GPT-SoVITS package: https://github.com/jdc4429/GPT-SoVITS-V2ProPlus-Windows
 
 Run the following commands to create an environment and install the neccessary files:
 
 ```bash
-conda create -n TTS python=3.10.20 -y
-conda activate TTS
+conda create -n Qwen3 python=3.10.20 -y
+conda activate Qwen3
 ```
-
 then run:
 
 ```bash
-pip install torch==2.10.0 torchvision==0.25.0 torchaudio==2.10.0 --index-url https://download.pytorch.org/whl/cu130
 pip install -U qwen-tts
 git clone https://github.com/jdc4429/Qwen3-TTS-Windows.git
 cd Qwen3-TTS-Windows
+powershell -File install-FINAL-FIXES.ps1 -Device CU126 -Source HF
 pip install -e .
 ```
 
