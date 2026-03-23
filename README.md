@@ -30,11 +30,10 @@ conda activate Qwen3
 then run:
 
 ```bash
-pip install -U qwen-tts
 git clone https://github.com/jdc4429/Qwen3-TTS-Windows.git
 cd Qwen3-TTS-Windows
-powershell -File install-FINAL-FIXES.ps1 -Device CU126 -Source HF
 pip install -e .
+powershell -File install-FINAL-FIXES.ps1 -Device CU126 -Source HF
 ```
 
 Additionally, we recommend using FlashAttention 2 to reduce GPU memory usage. (Not supported on Turing or older architectures)
