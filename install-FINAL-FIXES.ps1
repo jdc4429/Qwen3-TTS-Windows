@@ -132,19 +132,19 @@ Write-Success "Installed QWEN-TTS"
 switch ($Device) {
     "CU124" {
         Write-Info "Installing PyTorch For CUDA 12.4..."
-        Invoke-Pip torch torchvision torchaudio --index-url "https://download.pytorch.org/whl/cu124"
+        Invoke-Pip torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url "https://download.pytorch.org/whl/cu124"
     }
     "CU126" {
         Write-Info "Installing PyTorch For CUDA 12.6..."
-        Invoke-Pip torch torchvision torchaudio --index-url "https://download.pytorch.org/whl/cu126"
+        Invoke-Pip torch==2.10.0 torchvision==0.25.0 torchaudio==2.10.0 --index-url "https://download.pytorch.org/whl/cu126"
     }
     "CU128" {
         Write-Info "Installing PyTorch For CUDA 12.8..."
-        Invoke-Pip torch torchvision torchaudio --index-url "https://download.pytorch.org/whl/cu128"
+        Invoke-Pip torch==2.10.0 torchvision==0.25.0 torchaudio==2.10.0 --index-url "https://download.pytorch.org/whl/cu128"
     }
     "CU130" {
         Write-Info "Installing PyTorch For CUDA 13.0..."
-        Invoke-Pip torch torchvision torchaudio --index-url "https://download.pytorch.org/whl/cu130"
+        Invoke-Pip torch==2.10.0 torchvision==0.25.0 torchaudio==2.10.0 --index-url "https://download.pytorch.org/whl/cu130"
     }
     "CPU" {
         Write-Info "Installing PyTorch For CPU..."
