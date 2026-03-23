@@ -126,7 +126,7 @@ function Invoke-Unzip {
 }
 chcp 65001
 if ($PSScriptRoot) { Set-Location $PSScriptRoot }
-Write-Success "Installing QWEN-TTS..."
+Write-Info "Installing QWEN-TTS..."
 Invoke-Pip -U qwen-tts
 Write-Success "Installed QWEN-TTS"
 switch ($Device) {
@@ -157,5 +157,4 @@ $global:ErrorActionPreference = 'Continue'
 Invoke-Pip -r requirements.txt
 Write-Success "Python Dependencies Installed"
 $global:ErrorActionPreference = 'Stop'
-}
 Write-Success "Installation Completed"
