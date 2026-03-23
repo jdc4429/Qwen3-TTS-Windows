@@ -44,7 +44,7 @@ numba==0.64.0
 numpy==2.2.6
 onnxruntime==1.23.2
 orjson==3.11.7
-packaging @ file:///C:/miniconda3/conda-bld/packaging_1761049101700/work
+packaging
 pandas==2.3.3
 pillow==12.1.1
 platformdirs==4.9.4
