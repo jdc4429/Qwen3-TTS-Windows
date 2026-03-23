@@ -32,8 +32,8 @@ then run:
 ```bash
 git clone https://github.com/jdc4429/Qwen3-TTS-Windows.git
 cd Qwen3-TTS-Windows
-pip install -e .
 powershell -File install-FINAL-FIXES.ps1 -Device CU126 -Source HF
+pip install -e .
 ```
 Options for Powershell script: (Select from CU124, CU126, or CU128) (Select from HF, HF-Mirror, ModelScope)<br>
 
