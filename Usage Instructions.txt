@@ -20,17 +20,13 @@ audio you have created for training.  I recommend changing a couple settings for
 Min_length - Change from 4000 to 10000
 Minimum interval for audio cutting - Change from 300 to 500
 
-Fill in the 'Audio slicer input (file or folder)' with the path to the folder or file you wish to use for audio data to train.
-Click 'Open Speech Slicing.'  When complete, a message will be displayed under: Speech Slicing Process Output Information
+Fill in the 'Voice Segmentation tool' with the folder or filename you wish to use in training. (ie c:\train\combined_audio.wav)
+Click 'Turn On Speech Segmentation' and check for the completion message under 'Speech Segmentation Process Output Information'
 
-After slicing, use the 'Faster Whisper' speech recognition to automatically create the text matching the audio.
-The paths are already set in the script when you use the slicer, so no need to modify those.
-
+After segmentation, use the 'Faster Whisper' speech recognition to automatically create the text labelling to match the audio.
 Select the ASR model: Faster Whisper
 Select the ASR language: EN  (If your cloning in English)
-Click 'Open Speech Recognition'
-
-When complete, you will see a message under: Speech Recognition Process Output Information
+Click 'Turn on Speech Recognition' and check for the completion message under 'Speech Recognition Process output information'.
 
 You will now have the following files:
 Under C:\GPT-SoVITS-V2ProPlus-Windows\output\slicer_opt you will have the generated slices of training audio.
@@ -181,11 +177,13 @@ GPT-SoVITS Voice Cloning Continued
 ----------------------------------
 
 After creating the slicer_opt.list file, select the second tab '1-GPT-SOVITS-TTS'.
-All the needed fields will already be filled in from the segmentation (slicer).
+All the needed fields will already be filled in from the segmentation tool.
+Type a name or use the default 'xxx' to name your experiment.  This will populate in later tabs automatically.
+When your want to clone another voice make sure you change this to a different name or you may corrupt you other experiment.
 
 Scroll to the bottom of the page and click 'Turn on One-click triple action for training set formatting'
 This will automatically run through all three needed extraction features.
-A message will be displayed while carrying out each phase and a final completion message when done.
+A message will be displayed while carrying out each phases and a final completion message when done.
 
 Next, select the second tab (On the second set of tabs below) called '1B-Fine-tuning training'.
 Click 'Turn on SoVITS Training' and wait for the completion message.
@@ -193,7 +191,6 @@ Click 'Turn on GPT training' and wait for the completion message.
 All the needed training is now done and you can move to the inference.
 
 Next, select the third tab (On the second set of tabs below) called '1C-Reasoning'.
-Type a name or use the default 'xxx' to name your experiment.
 Click the dropdown marked 'List of GPT Models' to select the one of the models you trained.
 Click the dropdown marked 'SoVITS Model List' to select the one of the models you trained.
 Click 'Turn on TTS Inference WebUI' to open the inference tab in a new window. It takes a few seconds.
