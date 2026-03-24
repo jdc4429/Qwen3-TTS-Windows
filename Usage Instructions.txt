@@ -34,6 +34,7 @@ paths and text of each audio file.
 
 If the training data is too large for your amount of VRAM you will get a CUDA OOM error and generation will fail.
 You may need to edit the training data to remove some of the audio files from slicer_opt.list and delete the excess audio files.
+I personally remove any sliced clips that are 3 seconds or under.  We want the script to capture the tempo of the voice.
 
 Training data (For 8GB VRAM) cannot be too large or you will get a CUDA OOM error. The largest set I have been successful 
 in generating is 1 minute and 30 seconds long. Audio data size is 8.24MB or 8852KB - Also you can't have any audio clips 
