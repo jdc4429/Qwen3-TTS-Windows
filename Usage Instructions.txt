@@ -2,14 +2,20 @@ Note: You must have Miniconda or Anaconda installed in order to use the conda co
 Link to download: https://www.anaconda.com/download/success?reg=skipped 
 
 
-Voice Cloning (GPT-SoVITS is only needed for better voice cloning, you can skip if you just want to use Qwen3-TTS Custom voices or Voice Designer)
+Voice Cloning
+-------------
 
-Information on GPT-SoVITS V4/V2Pro/V2ProPlus (Used to make Qwen3-TTS easier to use for cloning through it's tools like the splicer, and speech recognition text labeling)
+Qwen3-TTS is great at voice cloning, but lacks tools.  GPT-SoVITS is good, but the tools are great.
+I recommend using the voice segmentation tool and voice recognition tool from GPT-SoVITS with Qwen3-TTS for the best results.
 
 If you want to do voice cloning with GPT-SoVITS, model V2ProPlus is currently the best model (Not V4).  
-In order to clone a voice with Qwen3-TTS, it's easiest to use several features from the GPT-SoVITS package to automate training
-and data extraction.  Using the slicer seems to improve the quality of the data so start with slicing whatever audio
-you have created for training.  I recommend changing a couple settings for the slicer: 
+
+
+Using the tools from GPT-SoVITS
+-------------------------------
+
+In order to clone a voice with Qwen3-TTS, it's easiest to use the above features from the GPT-SoVITS package to automate the tasks required.  Using the voice segmentation also seems to improve the quality of the data so start with slicing whatever
+audio you have created for training.  I recommend changing a couple settings for the slicer: 
 
 Min_length - Change from 4000 to 10000
 Minimum interval for audio cutting - Change from 300 to 500
@@ -44,8 +50,11 @@ Copy the slicer_opt.list file (from C:\GPT-SoVITS-V2ProPlus-Windows\output\slice
 That is all we need GPT-SoVITS for when using Qwen3-TTS for the voice cloning.
 You can do voice cloning in GPT-SoVITS also, I just don't find it as good as Qwen3-TTS.
 
+See instructions further down to continue voice cloning with GPT-SoVITS
+
 
 Qwen3-TTS Instructions (With the help of GPT-SoVITS) 
+----------------------------------------------------
 
 I made a script that automatically converts the slicer_opt.list (From GPT-SoVITS) to something we can use in Qwen3-TTS.
 The slicer_opt.list file contains the filenames and paths of all spliced .wav audio clips, along with their corresponding 
@@ -72,6 +81,7 @@ quality cloning.  Without this step the audio output may not be correct.
 
 
 Qwen3-TTS Custom Voice
+----------------------
 
 For Qwen3-TTS-12Hz-1.7B/0.6B-CustomVoice models, the supported speaker list and speaker descriptions are provided below. 
 I recommend using each speaker’s native language for the best quality. Of course, each speaker can speak any language 
@@ -103,6 +113,7 @@ Run with: python custom_voice.py
 
 
 Qwen3-TTS Voice Designer
+------------------------
 
 For the voice design model (Qwen3-TTS-12Hz-1.7B-VoiceDesign), you can use voice_design.py to provide the target 
 text and the natural-language instruct description to design the voice how you would like it to sound.
@@ -119,6 +130,7 @@ Run with: python voice_design.py
 
 
 Qwen 3-TTS Punctuation
+----------------------
 
 Use Punctuation Strategically: This is your most basic and powerful tool. Different punctuation marks instruct the model 
 to create pauses of varying lengths.
@@ -138,6 +150,7 @@ Colon : : Signals that an explanation or list is coming, creating a noticeable p
 
 
 Qwen3-TTS Recommended Settings
+------------------------------
 
 Try these different settings for Qwen3-TTS:
 temperature: 0.5 – 0.65   ← LOWER than usual
@@ -162,6 +175,41 @@ Lower temperature = more consistent speed
 Better to do one/two/three sentences at a time instead of pages, then concatenate audio as the model tends to speed up the voice 
 the longer the amount of text to generate gets.  Note: Using the slicer in GPT-SoVITS appears to resolve this issue!
 I am now able to do 60 seconds clips without this annoying issue popping up.  The training audio you are using can still affect it.
+
+
+GPT-SoVITS Voice Cloning Continued
+----------------------------------
+
+After creating the slicer_opt.list file, select the second tab '1-GPT-SOVITS-TTS'.
+All the needed fields will already be filled in from the segmentation (slicer).
+
+Scroll to the bottom of the page and click 'Turn on One-click triple action for training set formatting'
+This will automatically run through all three needed extraction features.
+A message will be displayed while carrying out each phase and a final completion message when done.
+
+Next, select the second tab (On the second set of tabs below) called '1B-Fine-tuning training'.
+Click 'Turn on SoVITS Training' and wait for the completion message.
+Click 'Turn on GPT training' and wait for the completion message.
+All the needed training is now done and you can move to the inference.
+
+Next, select the third tab (On the second set of tabs below) called '1C-Reasoning'.
+Type a name or use the default 'xxx' to name your experiment.
+Click the dropdown marked 'List of GPT Models' to select the one of the models you trained.
+Click the dropdown marked 'SoVITS Model List' to select the one of the models you trained.
+Click 'Turn on TTS Inference WebUI' to open the inference tab in a new window. It takes a few seconds.
+
+In order to clone you must supply an audio file with the same voice which you can drag and drop on the inference screen.
+The audio clip must be between 3-10 seconds or you WILL get an error.
+You must also include the text transcribed from the audio file in the 'Text for reference audio' field.
+Also change the dropdowns for the language if your voice cloning in another language other than English.
+Once you have done all that, your ready to actually clone a voice!
+
+Type whatever you want the text to be for the cloned voice in the 'Inference text' box.
+Click 'Start inference'. Results appear to the right of the button.  Click play to hear or download!
+
+You can modify the temperature, top_k, and top_p but by default top_k and top_p are disabled (Set to 1 disables)
+
+As I said before, I recommend using Qwen3-TTS as the quality is just better on voice cloning.
 
 
 
