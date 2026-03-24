@@ -37,10 +37,10 @@ pip install -e .
 ```
 Powershell script: (Select from CU124, CU126, CU128, CU130) (Select from HF, HF-Mirror, ModelScope)<br>
 
-Additionally, we recommend using FlashAttention 2 to reduce GPU memory usage. (Not supported on Turing or older architectures)
+Additionally, I recommend using FlashAttention 2 to reduce GPU memory usage. (Not supported on Turing or older architectures)
 
 ```bash
-pip install -U flash-attn --no-build-isolation
+pip install -U flash-attn --no-build-isolation   
 ```
 
 If your machine has less than 96GB of RAM and lots of CPU cores, run:
