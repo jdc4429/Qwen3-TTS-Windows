@@ -45,7 +45,7 @@ That is all we need GPT-SoVITS for when using Qwen3-TTS for the voice cloning.
 You can do voice cloning in GPT-SoVITS also, I just don't find it as good as Qwen3-TTS.
 
 
-Qwen3-TTS Instructions
+Qwen3-TTS Instructions (With the help of GPT-SoVITS)
 
 I made a script that automatically converts the slicer_opt.list to something we can use in Qwen3-TTS.
 Qwen3-TTS for voice cloning only supports a single reference audio file so the script will combine multiple audio files.
