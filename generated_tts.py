@@ -16,8 +16,8 @@ print(f"Using reference audio: {ref_audio}")
 print(f"Reference text length: {len(ref_text)} characters")
 print(f"Reference text preview: {ref_text[:100]}...")
 wavs, sr = model.generate_voice_clone(
-    text="""...Another thing that is hard to imagine is how far away the planets and stars really are... The ancient Chinese built stone towers so they could have a closer look at the stars... It's natural to think the stars and planets are much closer than they really are,... — after all,... — in everyday life we have no experience of the huge distances of space... Those distances are so large that it doesn't even make sense to measure them in feet or miles, the way we measure most lengths... Instead we use the light-year, which is the distance light travels in a year... In one second, a beam of light will travel 186,000 miles, so a light-year is a very long distance... The nearest star, other than our sun, is called Proxima Centauri (also known as Alpha Centauri C), which is about four light-years away... That is so far that even with the fastest spaceship on the drawing boards today, a trip to it would take about ten thousand years.""",
-    language="English",
+    text="""...欢迎来到语音合成技术的未来！""",
+    language="Chinese",
     ref_audio=ref_audio,
     ref_text=ref_text,
     instruct="""Speak in a friendly, enthusiastic YouTube host style. Sound natural and conversational, like you're talking directly to a friend. Use a warm, engaging tone with slight excitement when asking questions and talk at a good slow speed for listeners.""",
