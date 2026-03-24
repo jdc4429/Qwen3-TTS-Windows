@@ -23,3 +23,4 @@ wheels/
 venv/
 env/"src/" 
 src/ 
+"output_voice_clone*.wav" 
