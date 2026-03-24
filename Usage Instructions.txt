@@ -1,4 +1,4 @@
-Note: You must have Anaconda installed in order to use the conda commands.
+Note: You must have Miniconda or Anaconda installed in order to use the conda commands to install.
 Link to download: https://www.anaconda.com/download/success?reg=skipped 
 
 
@@ -34,6 +34,7 @@ paths and text of each audio file.
 
 If the training data is too large for your amount of VRAM you will get a CUDA OOM error and generation will fail.
 You may need to edit the training data to remove some of the audio files from slicer_opt.list and delete the excess audio files.
+I personally remove any sliced clips that are 3 seconds or under.  We want the script to capture the tempo of the voice.
 
 Training data (For 8GB VRAM) cannot be too large or you will get a CUDA OOM error. The largest set I have been successful 
 in generating is 1 minute and 30 seconds long. Audio data size is 8.24MB or 8852KB - Also you can't have any audio clips 
@@ -44,10 +45,13 @@ That is all we need GPT-SoVITS for when using Qwen3-TTS for the voice cloning.
 You can do voice cloning in GPT-SoVITS also, I just don't find it as good as Qwen3-TTS.
 
 
-Qwen3-TTS Instructions
+Qwen3-TTS Instructions (With the help of GPT-SoVITS) 
 
-I made a script that automatically converts the slicer_opt.list to something we can use in Qwen3-TTS.
-Qwen3-TTS for voice cloning only supports a single reference audio file so the script will combine multiple audio files.
+I made a script that automatically converts the slicer_opt.list (From GPT-SoVITS) to something we can use in Qwen3-TTS.
+The slicer_opt.list file contains the filenames and paths of all spliced .wav audio clips, along with their corresponding 
+text transcripts.  Qwen3-TTS for voice cloning only supports a single training audio file so the script will combine
+multiple audio files and then generate the python file to run to do the actual cloning.  Generating the files takes a
+split of a second and makes cloning with Qwen3-TTS much easier.
 
 Open the create_voice_clone_slicer.py file for editing and change the 'text_content =' text to whatever you want your
 cloned voice to say.  Save the edited file.
@@ -70,7 +74,7 @@ quality cloning.  Without this step the audio output may not be correct.
 Qwen3-TTS Custom Voice
 
 For Qwen3-TTS-12Hz-1.7B/0.6B-CustomVoice models, the supported speaker list and speaker descriptions are provided below. 
-We recommend using each speaker’s native language for the best quality. Of course, each speaker can speak any language 
+I recommend using each speaker’s native language for the best quality. Of course, each speaker can speak any language 
 supported by the model.
 
 Qwen3-TTS has 9 built in voices in sevreal languages that you can use with custom_voice.py
@@ -100,13 +104,12 @@ Run with: python custom_voice.py
 
 Qwen3-TTS Voice Designer
 
-For the voice design model (Qwen3-TTS-12Hz-1.7B-VoiceDesign), you can use generate_voice_design to provide the target 
+For the voice design model (Qwen3-TTS-12Hz-1.7B-VoiceDesign), you can use voice_design.py to provide the target 
 text and the natural-language instruct description to design the voice how you would like it to sound.
 
 Edit the following variables in voice_design.py:
 
 text="Hey, this is Garett and welcome to my YouTube channel.",
-
 instruct="A composed middle-aged male announcer with a deep, rich and magnetic voice, a steady speaking speed and clear 
 articulation, suitable for news broadcasting or documentary commentary.  Speak in a friendly, enthusiastic YouTube host 
 style. Sound natural and conversational, like you're talking directly to a friend. Use a warm, engaging tone with slight 
@@ -118,7 +121,7 @@ Run with: python voice_design.py
 Qwen 3-TTS Punctuation
 
 Use Punctuation Strategically: This is your most basic and powerful tool. Different punctuation marks instruct the model 
-to create pauses of varying lengths .
+to create pauses of varying lengths.
 
 Comma , : Creates a short pause (around 300ms), perfect for lists or separating clauses.
 
@@ -148,7 +151,7 @@ top_p: 1.0
 top_k: 50
 repetition_penalty: 1.05
 
-For stable timing (Voice speed not changing so bad):
+For stable timing (Voice speed not changing so bad!):
 temperature=0.45,
 top_p=0.8,
 top_k=30,
@@ -157,8 +160,8 @@ repetition_penalty=1.1
 Lower temperature = more consistent speed
 
 Better to do one/two/three sentences at a time instead of pages, then concatenate audio as the model tends to speed up the voice 
-the longer the amount of text to generate gets.  Using the slicer in GPT-SoVITS appears to resolve this issue!
-I am now able to do 60 seconds clips without this annoying issue popping up.  The training audio you are using can affect it still.
+the longer the amount of text to generate gets.  Note: Using the slicer in GPT-SoVITS appears to resolve this issue!
+I am now able to do 60 seconds clips without this annoying issue popping up.  The training audio you are using can still affect it.
 
 
 
