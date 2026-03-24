@@ -6,8 +6,7 @@ Voice Cloning (GPT-SoVITS is only needed for better voice cloning, you can skip 
 
 Information on GPT-SoVITS V4/V2Pro/V2ProPlus (Used to make Qwen3-TTS easier to use for cloning through it's tools like the splicer, and speech recognition text labeling)
 
-If you want to do voice cloning with GPT-SoVITS, model V2ProPlus is currently the best model.  
-I know it's confusing because there are higher versions (V3,V4) but this is the best version.
+If you want to do voice cloning with GPT-SoVITS, model V2ProPlus is currently the best model (Not V4).  
 In order to clone a voice with Qwen3-TTS, it's easiest to use several features from the GPT-SoVITS package to automate training
 and data extraction.  Using the slicer seems to improve the quality of the data so start with slicing whatever audio
 you have created for training.  I recommend changing a couple settings for the slicer: 
@@ -39,6 +38,7 @@ I personally remove any sliced clips that are 3 seconds or under.  We want the s
 Training data (For 8GB VRAM) cannot be too large or you will get a CUDA OOM error. The largest set I have been successful 
 in generating is 1 minute and 30 seconds long. Audio data size is 8.24MB or 8852KB - Also you can't have any audio clips 
 over 20 seconds long or it will crash (For 8GB VRAM). Higher VRAM means you can do bigger data sets and use longer audio clips.
+You only need 1 or 2 minutes of quality training audio for a good voice clone.
 
 Copy the slicer_opt.list file (from C:\GPT-SoVITS-V2ProPlus-Windows\output\slicer_opt) to the C:\Qwen3-TTS-Windows root folder.
 That is all we need GPT-SoVITS for when using Qwen3-TTS for the voice cloning.
