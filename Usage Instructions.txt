@@ -1,4 +1,4 @@
-Note: You must have Miniconda or Anaconda installed in order to use the conda commands.
+Note: You must have Miniconda or Anaconda installed in order to use the conda commands to install.
 Link to download: https://www.anaconda.com/download/success?reg=skipped 
 
 
