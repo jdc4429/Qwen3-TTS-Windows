@@ -1,7 +1,6 @@
 Param (
     [Parameter(Mandatory=$true)][ValidateSet("CU124", "CU126", "CU128", "CU130", "CPU")][string]$Device,
-    [Parameter(Mandatory=$true)][ValidateSet("HF", "HF-Mirror", "ModelScope")][string]$Source,
-    [switch]$DownloadUVR5
+    [Parameter(Mandatory=$true)][ValidateSet("HF", "HF-Mirror", "ModelScope")][string]$Source
 )
 $global:ErrorActionPreference = 'Stop'
 #$env:PYTHONWARNINGS = "ignore"
