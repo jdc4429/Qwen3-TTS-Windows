@@ -3,7 +3,7 @@ Param (
     [Parameter(Mandatory=$true)][ValidateSet("HF", "HF-Mirror", "ModelScope")][string]$Source
 )
 $global:ErrorActionPreference = 'Stop'
-#$env:PYTHONWARNINGS = "ignore"
+$env:PYTHONWARNINGS = "ignore"
 
 function Write-ErrorLog {
     param (
