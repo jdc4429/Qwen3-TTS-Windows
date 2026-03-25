@@ -20,12 +20,10 @@ wavs, sr = model.generate_voice_clone(
     ref_audio=ref_audio,
     ref_text=ref_text,
     instruct="""Speak in a friendly, enthusiastic YouTube host style. Sound natural and conversational, like you're talking directly to a friend. Use a warm, engaging tone with slight excitement when asking questions and talk at a good slow speed for listeners.""",
-    # 🔥 ADD THESE ↓↓↓
     temperature=0.5,
     top_p=0.8,
     top_k=30,
     repetition_penalty=1.1,
-    # 🔥 ALSO IMPORTANT (sub-speaker layer)
     subtalker_temperature=0.5,
     subtalker_top_p=0.8,
     subtalker_top_k=30,
