@@ -24,8 +24,7 @@ def generate_python_file(audio_path, text_path, output_file="generated_tts.py"):
     cleaned_text = re.sub(r'(?<!\.)\.(?!\.)(?=\s)', '...', cleaned_text)
     cleaned_text = '...' + cleaned_text
     cleaned_instruct = clean_text(instruct_content)
-    template = f'''
-import torch
+    template = f'''import torch
 import soundfile as sf
 from qwen_tts import Qwen3TTSModel
 model = Qwen3TTSModel.from_pretrained(
@@ -47,12 +46,10 @@ wavs, sr = model.generate_voice_clone(
     ref_audio=ref_audio,
     ref_text=ref_text,
     instruct="""{cleaned_instruct}""",
-    # 🔥 ADD THESE ↓↓↓
     temperature=0.5,
     top_p=0.8,
     top_k=30,
     repetition_penalty=1.1,
-    # 🔥 ALSO IMPORTANT (sub-speaker layer)
     subtalker_temperature=0.5,
     subtalker_top_p=0.8,
     subtalker_top_k=30,
