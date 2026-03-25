@@ -17,7 +17,7 @@ Qwen3-TTS is amazing at voice cloning, voice design, and custom voices but for c
 GPT-SoVITS is not quite as good at cloning, but it has great tools to automatically prepare your dataset for voice cloning.
 See the Usage Instructions.txt file for more information on how to use these tools along with my custom script.
 
-## Install<br>
+## Windows Install<br>
 
 Link to GPT-SoVITS package: https://github.com/jdc4429/GPT-SoVITS-V2ProPlus-Windows
 
