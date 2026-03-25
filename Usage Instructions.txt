@@ -14,7 +14,8 @@ If you want to do voice cloning with GPT-SoVITS, model V2ProPlus is currently th
 Using the tools from GPT-SoVITS
 -------------------------------
 
-In order to clone a voice with Qwen3-TTS, it's easiest to use the above features from the GPT-SoVITS package to automate the tasks required.  Using the voice segmentation also seems to improve the quality of the data so start with slicing whatever
+In order to clone a voice with Qwen3-TTS, it's easiest to use the above features from the GPT-SoVITS package to automate the tasks required.
+Using the voice segmentation also seems to improve the quality of the data so start with slicing whatever
 audio you have created for training.  I recommend changing a couple settings for the slicer: 
 
 Min_length - Change from 4000 to 10000
